@@ -1,0 +1,17 @@
+CREATE TABLE secteur (
+id INT NOT NULL AUTO_INCREMENT,
+nomSecteur char(30) NOT NULL, 
+plafond INT NOT NULL, 
+PRIMARY KEY(id)
+)
+
+INSERT INTO secteur(nomSecteur, plafond) Values('Nord-Ouest');
+INSERT INTO secteur(null, 'Est', 150);
+INSERT INTO secteur(null, 'Centre', 150);
+INSERT INTO secteur(null, 'Paris et région parisienne', 200);
+
+ALTER TABLE region
+ADD idSecteur INT NULL
+
+ALTER TABLE region
+ADD FOREIGN KEY(idSecteur) REFERENCES Secteur(id)
